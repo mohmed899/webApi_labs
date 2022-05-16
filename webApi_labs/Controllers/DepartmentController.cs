@@ -2,8 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using webApi_labs.repo;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+
 namespace webApi_labs.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class DepartmentController : ControllerBase
@@ -39,7 +42,7 @@ namespace webApi_labs.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public IActionResult getById(int id)
+        public IActionResult getById([FromRoute]int id)
         {
             var department = repo.getById(id);
             if(department != null)

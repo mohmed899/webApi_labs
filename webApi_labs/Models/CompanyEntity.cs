@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace webApi_labs.Models
 {
-    public class CompanyEntity: DbContext
+    public class CompanyEntity:IdentityDbContext<UserAplication>
     {
         public CompanyEntity()
         {
